@@ -2,8 +2,8 @@ package entity.chat;
 
 import java.util.List;
 
-public abstract class GroupChat extends Chat {
-    GroupChat(Long id, List<Long> members) {
+public abstract class Group extends Chat {
+    Group(Long id, List<Long> members) {
         super(id, members);
     }
 }

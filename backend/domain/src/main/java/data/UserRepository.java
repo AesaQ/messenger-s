@@ -1,26 +1,26 @@
 package data;
 
-import ru.AesaQ.domain.data.base.Repository;
-import ru.AesaQ.domain.entity.Person;
+import data.base.Repository;
+import entity.User;
 
 import java.util.List;
 
-public interface UserRepository extends Repository<Person> {
-    void create(Person person);
+public interface UserRepository extends Repository<User> {
+    void create(User User);
 
-    Person getById(long id);
+    User getById(long id);
 
-    List<Person> getAll();
+    List<User> getAll();
 
-    void update(Person Person);
+    void update(User User);
 
     void delete(long id);
 
-    List<Person> search(String query);
+    List<User> search(String query);
 
-    List<Person> getByChat(long chatId);
+    List<User> getByChat(long chatId);
 
-    List<Person> getByChannel(long chatId);
+    List<User> getByChannel(long chatId);
 
-    List<Person> getUnreadPersons(long userId);
+    List<User> getUnreadUsers(long userId);
 }

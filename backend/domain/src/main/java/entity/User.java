@@ -1,7 +1,7 @@
 package entity;
 
-public abstract class Person {
-    Person(String login, String password, String name) {
+public abstract class User {
+    User(String login, String password, String name) {
     }
 
     abstract String getLogin();
@@ -10,7 +10,7 @@ public abstract class Person {
 
     abstract String getName();
 
-    abstract boolean equals(Person p);
+    abstract boolean equals(User p);
 
     public abstract String toString();
 }

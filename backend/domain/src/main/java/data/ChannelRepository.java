@@ -1,7 +1,7 @@
 package data;
 
-import ru.AesaQ.domain.data.base.Repository;
-import ru.AesaQ.domain.entity.Channel;
+import data.base.Repository;
+import entity.Channel;
 
 import java.util.List;
 

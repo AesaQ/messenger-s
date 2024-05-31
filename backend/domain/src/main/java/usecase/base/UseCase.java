@@ -1,5 +1,5 @@
 package usecase.base;
 
-public interface UseCase {
-    void execute();
+public interface UseCase<T> {
+    void execute(T param);
 }
