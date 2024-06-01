@@ -1,7 +1,6 @@
-package usecase;
+package usecase.create;
 
-import data.ChannelRepository;
-import entity.Channel;
+import entity.communicate.Channel;
 import usecase.base.UseCase;
 
 public abstract class CreateChannelUseCase implements UseCase<Channel> {

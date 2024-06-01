@@ -1,4 +1,4 @@
-package entity.chat;
+package entity.communicate;
 
 import java.util.List;
 

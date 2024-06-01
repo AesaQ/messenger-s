@@ -1,7 +1,6 @@
-package usecase;
+package usecase.create;
 
-import data.ChatRepository;
-import entity.chat.Chat;
+import entity.communicate.Chat;
 import usecase.base.UseCase;
 
 public abstract class CreateChatUseCase implements UseCase<Chat> {

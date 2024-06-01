@@ -1,4 +1,4 @@
-package usecase;
+package usecase.user;
 
 import data.UserRepository;
 import usecase.base.UseCase;

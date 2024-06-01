@@ -1,4 +1,4 @@
-package usecase;
+package usecase.remove;
 
 import data.MessageRepository;
 import entity.message.SentMessage;

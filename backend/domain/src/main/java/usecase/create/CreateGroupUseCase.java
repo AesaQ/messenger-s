@@ -1,7 +1,6 @@
-package usecase;
+package usecase.create;
 
-import data.GroupRepository;
-import entity.chat.Group;
+import entity.communicate.Group;
 import usecase.base.UseCase;
 
 public abstract class CreateGroupUseCase implements UseCase<Group> {

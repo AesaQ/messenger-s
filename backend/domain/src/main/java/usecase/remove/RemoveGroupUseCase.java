@@ -1,6 +1,5 @@
-package usecase;
+package usecase.remove;
 
-import data.GroupRepository;
 import usecase.base.UseCase;
 
 public abstract class RemoveGroupUseCase implements UseCase<Long> {
