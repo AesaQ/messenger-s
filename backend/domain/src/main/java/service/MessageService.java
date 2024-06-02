@@ -1,55 +1,40 @@
 package service;
 
-import data.CommunicateRepository;
-import data.MessageRepository;
-import entity.enums.CommunicateType;
-import entity.message.Message;
-import usecase.send.SendMessageUseCase;
+import data.DomainMessageRepository;
+import entity.DomainMessage;
+import usecase.message.RemoveMessageUseCase;
+import usecase.message.SendMessageUseCase;
 
 import java.util.List;
 
 public class MessageService {
-    private CommunicateRepository communicateRepository;
-    private MessageRepository messageRepository;
-    private SendMessageUseCase sendMessageUseCase;
+    private final DomainMessageRepository messageRepository;
+    private final SendMessageUseCase sendMessageUseCase;
+    private final RemoveMessageUseCase removeMessageUseCase;
 
     public MessageService(
-            CommunicateRepository communicateRepository,
-            MessageRepository messageRepository,
-            SendMessageUseCase sendMessageUseCase
+            DomainMessageRepository messageRepository,
+            SendMessageUseCase sendMessageUseCase,
+            RemoveMessageUseCase removeMessageUseCase
     ) {
-        this.communicateRepository = communicateRepository;
         this.sendMessageUseCase = sendMessageUseCase;
         this.messageRepository = messageRepository;
+        this.removeMessageUseCase = removeMessageUseCase;
     }
 
-    void sendMessage(
-            Long communicateId,
-            CommunicateType type,
-            Long senderId,
-            String content
-    ) {
-        switch (type) {
-
-            case CHAT:
-                sendMessageUseCase.setContent(content);
-                sendMessageUseCase.execute(senderId, communicateId);
-
-            case GROUP:
-                sendMessageUseCase.setContent(content);
-                sendMessageUseCase.execute(senderId, communicateId);
-
-            case CHANNEL:
-                sendMessageUseCase.setContent(content);
-                sendMessageUseCase.execute(senderId, communicateId);
-        }
+    public void sendMessage(DomainMessage message) {
+        sendMessageUseCase.execute(message);
     }
 
-    void removeMessage(Long messageId) {
-        messageRepository.deleteById(messageId);
+    public void removeMessage(DomainMessage message) {
+        removeMessageUseCase.execute(message);
     }
 
-    List<Message> getCommunicateMessages(Long communicateId) {
-        return messageRepository.findAllByCommunicateId(communicateId);
+    public List<? extends DomainMessage> getCommunicateMessages(Long communicateId) {
+        return messageRepository.findListByCommunicateId(communicateId);
+    }
+
+    public DomainMessage findById(Long id) {
+        return messageRepository.findById(id);
     }
 }

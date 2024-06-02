@@ -7,7 +7,7 @@ public interface Repository<T> {
 
     T findById(Long id);
 
-    List<T> findAll();
+    List<? extends T> findAll();
 
     void update(T entity);
 
