@@ -1,11 +1,11 @@
 package usecase.user;
 
-import data.UserRepository;
+import data.DomainUserRepository;
 import usecase.base.UseCase;
 
 public abstract class LoginUserUseCase implements UseCase<Long> {
     public LoginUserUseCase(
-            UserRepository userRepository
+            DomainUserRepository userRepository
             //todo: Наверняка здесь понадобится какая нибудь сессия
     ) {
     }

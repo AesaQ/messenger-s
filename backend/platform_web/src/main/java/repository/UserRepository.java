@@ -1,40 +1,31 @@
 package repository;
 
 import data.DomainUserRepository;
+import entity.Communicate;
+import entity.DomainUser;
 import entity.User;
 import entity.communicate.DomainCommunicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class UserRepository implements DomainUserRepository {
 
-    private SpringUserRepository springUserRepository;
+    private final SpringUserRepository springUserRepository;
+    private final CommunicateRepository communicateRepository;
 
     @Autowired
-    public UserRepository(SpringUserRepository springUserRepository) {
+    public UserRepository(SpringUserRepository springUserRepository, CommunicateRepository communicateRepository) {
         this.springUserRepository = springUserRepository;
+        this.communicateRepository = communicateRepository;
     }
 
     @Override
-    public void create(User User) {
-
-    }
-
-    @Override
-    public User getById(long id) {
-        return null;
-    }
-
-    @Override
-    public List<User> getAll() {
-        return null;
-    }
-
-    @Override
-    public void save(User entity) {
+    public void save(DomainUser entity) {
 
     }
 
@@ -49,7 +40,7 @@ public class UserRepository implements DomainUserRepository {
     }
 
     @Override
-    public void update(User User) {
+    public void update(DomainUser User) {
 
     }
 
@@ -57,39 +48,21 @@ public class UserRepository implements DomainUserRepository {
     public void deleteById(Long id) {
 
     }
-
     @Override
     public boolean existsById(Long id) {
         return false;
     }
-
-    @Override
-    public void delete(long id) {
-
-    }
-
-    @Override
-    public List<User> search(String query) {
-        return null;
-    }
-
-    @Override
-    public List<User> getByChat(long chatId) {
-        return null;
-    }
-
-    @Override
-    public List<User> getByChannel(long chatId) {
-        return null;
-    }
-
-    @Override
-    public List<User> getUnreadUsers(long userId) {
-        return null;
-    }
-
     @Override
     public List<? extends DomainCommunicate> getCommunicateListByUserId(Long id) {
-        return;
+
+        Optional<User> optionalUser = springUserRepository.findById(id);
+        User user = optionalUser.get();
+
+        List<Long> communicateIDs = user.getCommunicateIDs();
+        List<Communicate> resultList = new ArrayList<>();
+        communicateIDs.forEach(communicateID ->
+                resultList.add(communicateRepository.findById(communicateID))
+        );
+        return resultList;
     }
 }

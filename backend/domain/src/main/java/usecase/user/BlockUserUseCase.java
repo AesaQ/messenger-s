@@ -1,12 +1,12 @@
 package usecase.user;
 
-import data.UserRepository;
+import data.DomainUserRepository;
 import usecase.base.UseCase;
 
 public abstract class BlockUserUseCase implements UseCase<Long> {
     public BlockUserUseCase(
             Long senderId,
-            UserRepository userRepository
+            DomainUserRepository userRepository
     ) {
     }
 

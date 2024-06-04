@@ -1,29 +1,29 @@
 package data;
 
 import data.base.Repository;
-import entity.User;
+import entity.DomainUser;
 import entity.communicate.DomainCommunicate;
 
 import java.util.List;
 
-public interface DomainUserRepository extends Repository<User> {
-    void create(User User);
+public interface DomainUserRepository extends Repository<DomainUser> {
+    @Override
+    void save(DomainUser entity);
 
-    User getById(long id);
+    @Override
+    DomainUser findById(Long id);
 
-    List<User> getAll();
+    @Override
+    List<? extends DomainUser> findAll();
 
-    void update(User User);
+    @Override
+    void update(DomainUser entity);
 
-    void delete(long id);
+    @Override
+    void deleteById(Long id);
 
-    List<User> search(String query);
-
-    List<User> getByChat(long chatId);
-
-    List<User> getByChannel(long chatId);
-
-    List<User> getUnreadUsers(long userId);
+    @Override
+    boolean existsById(Long id);
 
     List<? extends DomainCommunicate> getCommunicateListByUserId(Long id);
 }

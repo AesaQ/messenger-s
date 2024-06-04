@@ -9,6 +9,7 @@ import java.util.List;
 @Table(name = "user")
 public class User extends DomainUser {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -64,5 +65,13 @@ public class User extends DomainUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Long> getCommunicateIDs() {
+        return communicateIDs;
+    }
+
+    public void setCommunicateIDs(List<Long> communicateIDs) {
+        this.communicateIDs = communicateIDs;
     }
 }

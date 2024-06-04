@@ -12,7 +12,6 @@ import usecase.SendMessageUseCaseImpl;
 public class ServiceProvider {
     private final MessageService messageService;
     private final UserService userService;
-
     public ServiceProvider(
             MessageRepository messageRepository,
             SendMessageUseCaseImpl sendMessageUseCase,

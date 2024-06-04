@@ -23,5 +23,4 @@ public class UserController {
     public List<? extends DomainCommunicate> getCommunicateListByUserId(@PathVariable Long id) {
         return userService.getCommunicateListByUserId(id);
     }
-
 }

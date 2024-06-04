@@ -1,15 +1,16 @@
 package usecase.user;
 
-import data.UserRepository;
-import entity.User;
+
+import data.DomainUserRepository;
+import entity.DomainUser;
 import usecase.base.UseCase;
 
-public abstract class RegisterUserUseCase implements UseCase<User> {
+public abstract class RegisterUserUseCase implements UseCase<DomainUser> {
     public RegisterUserUseCase(
-            UserRepository userRepository
+            DomainUserRepository userRepository
     ) {
     }
 
     @Override
-    public abstract void execute(User param);
+    public abstract void execute(DomainUser param);
 }

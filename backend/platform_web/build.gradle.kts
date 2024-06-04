@@ -6,14 +6,14 @@ plugins {
 
 dependencies {
     implementation(project(":domain"))
-    implementation("org.hibernate:hibernate-core:6.5.2.Final")
-    implementation("org.postgresql:postgresql:42.7.3")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-web")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("org.postgresql:postgresql")
+    implementation("org.hibernate:hibernate-core:6.5.2.Final")
+    implementation("org.postgresql:postgresql:42.7.3")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")

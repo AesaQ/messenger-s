@@ -10,6 +10,7 @@ import java.util.List;
 @Table(name = "communicate")
 public class Communicate extends DomainCommunicate {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "name")
