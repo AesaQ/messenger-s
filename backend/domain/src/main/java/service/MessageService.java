@@ -26,11 +26,11 @@ public class MessageService {
         sendMessageUseCase.execute(message);
     }
 
-    public void removeMessage(DomainMessage message) {
-        removeMessageUseCase.execute(message);
+    public void removeById(Long id) {
+        removeMessageUseCase.execute(id);
     }
 
-    public List<? extends DomainMessage> getCommunicateMessages(Long communicateId) {
+    public List<? extends DomainMessage> findListByCommunicateId(Long communicateId) {
         return messageRepository.findListByCommunicateId(communicateId);
     }
 

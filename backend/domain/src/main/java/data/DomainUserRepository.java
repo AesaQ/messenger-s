@@ -2,10 +2,11 @@ package data;
 
 import data.base.Repository;
 import entity.User;
+import entity.communicate.DomainCommunicate;
 
 import java.util.List;
 
-public interface UserRepository extends Repository<User> {
+public interface DomainUserRepository extends Repository<User> {
     void create(User User);
 
     User getById(long id);
@@ -23,4 +24,6 @@ public interface UserRepository extends Repository<User> {
     List<User> getByChannel(long chatId);
 
     List<User> getUnreadUsers(long userId);
+
+    List<? extends DomainCommunicate> getCommunicateListByUserId(Long id);
 }

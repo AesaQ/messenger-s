@@ -9,4 +9,5 @@ public class RemoveMessageUseCaseImpl extends RemoveMessageUseCase {
     public RemoveMessageUseCaseImpl(DomainMessageRepository messageRepository) {
         super(messageRepository);
     }
+
 }

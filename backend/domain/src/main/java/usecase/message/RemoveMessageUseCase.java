@@ -1,10 +1,9 @@
 package usecase.message;
 
 import data.DomainMessageRepository;
-import entity.DomainMessage;
 import usecase.base.UseCase;
 
-public abstract class RemoveMessageUseCase implements UseCase<DomainMessage> {
+public abstract class RemoveMessageUseCase implements UseCase<Long> {
     private DomainMessageRepository messageRepository;
 
     public RemoveMessageUseCase(
@@ -14,7 +13,7 @@ public abstract class RemoveMessageUseCase implements UseCase<DomainMessage> {
     }
 
     @Override
-    public void execute(DomainMessage message) {
-        messageRepository.deleteById(message.getId());
+    public void execute(Long id) {
+        messageRepository.deleteById(id);
     }
 }

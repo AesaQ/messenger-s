@@ -6,6 +6,8 @@ plugins {
 
 dependencies {
     implementation(project(":domain"))
+    implementation("org.hibernate:hibernate-core:6.5.2.Final")
+    implementation("org.postgresql:postgresql:42.7.3")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-validation")
@@ -16,6 +18,9 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("com.vladmihalcea:hibernate-types-52:2.21.1")
+
+
 }
 
 tasks.withType<Test> {

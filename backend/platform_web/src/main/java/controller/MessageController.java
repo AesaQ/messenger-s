@@ -1,23 +1,21 @@
 package controller;
 
+import entity.DomainMessage;
 import entity.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import provider.ServiceProvider;
-import repository.MessageRepository;
 import service.MessageService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/messages")
+@RequestMapping("/api/message")
 public class MessageController {
-    private final MessageRepository messageRepository;
     private final MessageService messageService;
 
     @Autowired
-    public MessageController(MessageRepository messageRepository, ServiceProvider serviceProvider) {
-        this.messageRepository = messageRepository;
+    public MessageController(ServiceProvider serviceProvider) {
         this.messageService = serviceProvider.getMessageService();
     }
 
@@ -32,7 +30,12 @@ public class MessageController {
     }
 
     @GetMapping("/getListByCommunicateId/{communicateId}")
-    public List<Message> findListByCommunicateId(@PathVariable Long communicateId) {
-        return messageRepository.findListByCommunicateId(communicateId);
+    public List<? extends DomainMessage> findListByCommunicateId(@PathVariable Long communicateId) {
+        return messageService.findListByCommunicateId(communicateId);
+    }
+
+    @DeleteMapping("/remove/{id}")
+    public void removeById(@PathVariable Long id) {
+        messageService.removeById(id);
     }
 }
